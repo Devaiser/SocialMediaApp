@@ -25,7 +25,7 @@ export default defineEventHandler(async (event) => {
 	const doesThePasswordMatch = await bcrypt.compare(password, user.password);
 
 	if (!doesThePasswordMatch) {
-		return sendError(event, createError({ statusCode: 400, statusMessage: 'Passwords do not match' }));
+		return sendError(event, createError({ statusCode: 400, statusMessage: 'Invalid password' }));
 	}
 
 	// Generate tokens
